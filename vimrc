@@ -153,3 +153,6 @@ func! Settitle()
     let l = l + 1 | call setline(l, 'typedef unsigned long long ull;')
 endfunc
 
+map ;y :!/mnt/c/Windows/System32/clip.exe<cr>u
+map ;p :read !/mnt/c/Windows/System32/paste.exe <cr>i<bs><esc>l
+map! ;p <esc>:read !/mnt/c/Windows/System32/paste.exe <cr>i<bs><esc>l
