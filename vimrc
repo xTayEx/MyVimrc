@@ -156,3 +156,16 @@ endfunc
 map ;y :!/mnt/c/Windows/System32/clip.exe<cr>u
 map ;p :read !/mnt/c/Windows/System32/paste.exe <cr>i<bs><esc>l
 map! ;p <esc>:read !/mnt/c/Windows/System32/paste.exe <cr>i<bs><esc>l
+
+" 完成补全后自动关闭函数原型提示窗口i
+let g:ycm_autoclose_preview_window_after_insertion=1 
+
+" 当vim打开一个目录时, nerdtree自动使用
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+" 打开新的窗口时, focus在buffer中而不是nerdtree
+autocmd VimEnter * :wincmd l
+
+" 当vim中没有其他文件, 只剩下nerdtree时, 自动关闭窗口
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
