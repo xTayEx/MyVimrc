@@ -34,6 +34,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'Yggdroot/indentLine'
     Plug 'ycm-core/YouCompleteMe'
     Plug 'ryanoasis/vim-devicons'
+    Plug 'Chiel92/vim-autoformat'
 call plug#end()
 if has("syntax")
   syntax on
@@ -113,7 +114,7 @@ func! Run()
         exec '!g++ -Wall -std=c++11 % -o %<'
         exec '!./%<'
     else
-        echo 'Not Cpp or C file'
+        echo 'Not a cpp or c file'
     endif
 endfunc
 
@@ -123,11 +124,14 @@ func! Compile()
     if &filetype is 'cpp' || &filetype is 'c' || &filetype is 'cc'
         exec '!g++ -Wall -std=c++11 % -o %<'
     else
-        echo 'Not Cpp or C file'
+        echo 'Not a cpp or c file'
     endif
 endfunc
 
 map <F12> :call Settitle()<cr>
+map <C-A> ggvGl
+map <Leader>pl :PlugInstall<cr>
+map <Leader>ps :PlugStatus<cr>
 
 func! Settitle()
     let l = 0
@@ -158,7 +162,8 @@ map ;p :read !/mnt/c/Windows/System32/paste.exe <cr>i<bs><esc>l
 map! ;p <esc>:read !/mnt/c/Windows/System32/paste.exe <cr>i<bs><esc>l
 
 " 完成补全后自动关闭函数原型提示窗口i
-let g:ycm_autoclose_preview_window_after_insertion=1 
+let g:ycm_autoclose_preview_window_after_completion=1 
+
 
 " 当vim打开一个目录时, nerdtree自动使用
 autocmd StdinReadPre * let s:std_in=1
@@ -169,3 +174,5 @@ autocmd VimEnter * :wincmd l
 
 " 当vim中没有其他文件, 只剩下nerdtree时, 自动关闭窗口
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
+
+set noswapfile
