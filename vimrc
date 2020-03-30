@@ -1,6 +1,7 @@
 runtime! debian.vim
 
 call plug#begin('~/.vim/plugged')
+    Plug 'itchyny/calendar.vim'
     Plug 'preservim/nerdcommenter'
     Plug 'mbbill/echofunc'
     Plug 'Yggdroot/LeaderF'
@@ -118,6 +119,10 @@ map <C-A> ggvGl
 map <Leader>pi :PlugInstall<cr>
 map <Leader>ps :PlugStatus<cr>
 map <C-K> <plug>NERDCommenterToggle
+map <C-H> <C-W>h
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-L> <C-W>l
 
 func! Settitle()
     let l = 0
