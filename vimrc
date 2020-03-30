@@ -1,7 +1,7 @@
 runtime! debian.vim
 
 call plug#begin('~/.vim/plugged')
-    Plug 'itchyny/calendar.vim'
+    Plug 'itchyny/calendar.vim', {'on': 'Calendar'}
     Plug 'preservim/nerdcommenter'
     Plug 'mbbill/echofunc'
     Plug 'Yggdroot/LeaderF'
@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'preservim/nerdtree'
-    Plug 'Yggdroot/indentLine'
+    Plug 'Yggdroot/indentLine', {'for': ['cpp', 'c', 'h', 'cxx', 'py', 'hpp']}
     Plug 'ycm-core/YouCompleteMe'
     Plug 'ryanoasis/vim-devicons'
     Plug 'Chiel92/vim-autoformat'
@@ -52,7 +52,6 @@ set termencoding=utf-8
 map <F3> :NERDTreeToggle<CR>
 let g:startify_custom_header=
     \ 'startify#center(startify#fortune#cowsay())'
-
 
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "M",
@@ -118,7 +117,7 @@ map <F12> :call Settitle()<cr>Gi
 map <C-A> ggvGl
 map <Leader>pi :PlugInstall<cr>
 map <Leader>ps :PlugStatus<cr>
-map <C-K> <plug>NERDCommenterToggle
+map <S-K> <plug>NERDCommenterToggle
 map <C-H> <C-W>h
 map <C-J> <C-W>j
 map <C-K> <C-W>k
