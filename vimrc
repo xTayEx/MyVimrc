@@ -1,30 +1,7 @@
-" All system-wide defaults are set in $VIMRUNTIME/debian.vim and sourced by
-" the call to :runtime you can find below.  If you wish to change any of those
-" settings, you should do it in this file (/etc/vim/vimrc), since debian.vim
-" will be overwritten everytime an upgrade of the vim packages is performed.
-" It is recommended to make changes after sourcing debian.vim since it alters
-" the value of the 'compatible' option.
-
-" This line should not be removed as it ensures that various options are
-" properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
 
-" Vim will load $VIMRUNTIME/defaults.vim if the user does not have a vimrc.
-" This happens after /etc/vim/vimrc(.local) are loaded, so it will override
-" any settings in these files.
-" If you don't want that to happen, uncomment the below line to prevent
-" defaults.vim from being loaded.
-" let g:skip_defaults_vim = 1
-
-" Uncomment the next line to make Vim more Vi-compatible
-" NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous
-" options, so any other options should be set AFTER setting 'compatible'.
-"set compatible
-
-" Vim5 and later versions support syntax highlighting. Uncommenting the next
-" line enables syntax highlighting by default.
 call plug#begin('~/.vim/plugged')
-    "Plug 'itchyny/lightline.vim'
+    Plug 'mbbill/echofunc'
     Plug 'Yggdroot/LeaderF'
     Plug 'jiangmiao/auto-pairs'
     Plug 'mhinz/vim-startify'
@@ -107,6 +84,11 @@ let g:ycm_confirm_extra_conf=0
 
 let g:Lf_StlSeparator={'left': '', 'right': '', 'font:': 'consola NF'}
 
+map <F8> :call GenerateTags()<cr>
+func! GenerateTags()
+    exec '!ctags -R --fields=+lS'
+endfunc
+
 map <F11> :call Run()<cr> 
 func! Run()
     exec 'w'
@@ -122,11 +104,13 @@ map <F9> :call Compile()<cr>
 func! Compile()
     exec 'w'
     if &filetype is 'cpp' || &filetype is 'c' || &filetype is 'cc'
+        "exec '!ctags -R --fields=+lS'
         exec '!g++ -Wall -std=c++11 % -o %<'
     else
         echo 'Not a cpp or c file'
     endif
 endfunc
+
 
 map <F12> :call Settitle()<cr>Gi
 map <C-A> ggvGl
