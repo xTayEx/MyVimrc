@@ -128,7 +128,7 @@ func! Compile()
     endif
 endfunc
 
-map <F12> :call Settitle()<cr>
+map <F12> :call Settitle()<cr>Gi
 map <C-A> ggvGl
 map <Leader>pl :PlugInstall<cr>
 map <Leader>ps :PlugStatus<cr>
@@ -146,7 +146,8 @@ func! Settitle()
     let l = l + 1 | call setline(l ,'#include <queue>')
     let l = l + 1 | call setline(l, '#include <set>')
     let l = l + 1 | call setline(l, '#include <cctype>')
-    let l = l + 1 | call setline(l, '#define mst(a,b) memset((a),(b),sizeof(b))')
+    let l = l + 1 | call setline(l, '#include <cmath>')
+    let l = l + 1 | call setline(l, '#define mst(a,b) memset((a),(b),sizeof(a))')
     let l = l + 1 | call setline(l, '#define debug printf("debug\n")')
     let l = l + 1 | call setline(l, '#define INF 0x3f3f3f3f')
     let l = l + 1 | call setline(l, '#define lson lef,mid,rt<<1')
@@ -155,11 +156,14 @@ func! Settitle()
     let l = l + 1 | call setline(l, 'using namespace std;')
     let l = l + 1 | call setline(l , 'typedef long long ll;')
     let l = l + 1 | call setline(l, 'typedef unsigned long long ull;')
+    let l = l + 1 | call setline(l, '')
 endfunc
 
 map ;y :!/mnt/c/Windows/System32/clip.exe<cr>u
 map ;p :read !/mnt/c/Windows/System32/paste.exe <cr>i<bs><esc>l
 map! ;p <esc>:read !/mnt/c/Windows/System32/paste.exe <cr>i<bs><esc>l
+map <F2> :Autoformat<cr>
+map <Leader>n :edit
 
 " 完成补全后自动关闭函数原型提示窗口i
 let g:ycm_autoclose_preview_window_after_completion=1 
