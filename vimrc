@@ -1,6 +1,7 @@
 runtime! debian.vim
 
 call plug#begin('~/.vim/plugged')
+    Plug 'preservim/nerdcommenter'
     Plug 'mbbill/echofunc'
     Plug 'Yggdroot/LeaderF'
     Plug 'jiangmiao/auto-pairs'
@@ -114,8 +115,9 @@ endfunc
 
 map <F12> :call Settitle()<cr>Gi
 map <C-A> ggvGl
-map <Leader>pl :PlugInstall<cr>
+map <Leader>pi :PlugInstall<cr>
 map <Leader>ps :PlugStatus<cr>
+map <C-K> <plug>NERDCommenterToggle
 
 func! Settitle()
     let l = 0
