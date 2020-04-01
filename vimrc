@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'preservim/nerdtree'
-    Plug 'Yggdroot/indentLine', {'for': ['cpp', 'c', 'h', 'cxx', 'py', 'hpp']}
+    Plug 'Yggdroot/indentLine', {'for': ['python', 'cpp']}
     Plug 'ycm-core/YouCompleteMe'
     Plug 'ryanoasis/vim-devicons'
     Plug 'Chiel92/vim-autoformat'
