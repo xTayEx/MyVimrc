@@ -60,13 +60,13 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Renamed"   : "→",
     \ "Unmerged"  : "=",
     \ "Deleted"   : "×",
-    \ "Dirty"     : "😥",
-    \ "Clean"     : "😊",
+    \ "Dirty"     : "D",
+    \ "Clean"     : "C",
     \ 'Ignored'   : "I",
     \ "Unknown"   : "?"
     \ }
 
-nnoremap <Leader>ve :vsp /etc/vim/vimrc<cr>
+nnoremap <Leader>ve :edit /etc/vim/vimrc<cr>
 nnoremap <Leader>vs :source /etc/vim/vimrc<cr>
 map <C-N> :bn<cr>
 map <C-P> :bp<cr>
@@ -90,8 +90,8 @@ func! GenerateTags()
     exec '!ctags -R --fields=+lS'
 endfunc
 
-map <F11> :call Run()<cr> 
-func! Run()
+map <F11> :call CompileAndRun()<cr> 
+func! CompileAndRun()
     exec 'w'
     if &filetype is 'cpp' || &filetype is 'c' || &filetype is 'cc'
         exec '!g++ -Wall -std=c++11 % -o %<'
@@ -99,6 +99,11 @@ func! Run()
     else
         echo 'Not a cpp or c file'
     endif
+endfunc
+
+map <F10> :call Run()<cr>
+func! Run()
+    exec '!./%<'
 endfunc
 
 map <F9> :call Compile()<cr>
