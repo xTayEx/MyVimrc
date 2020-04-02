@@ -1,6 +1,7 @@
 runtime! debian.vim
 
 call plug#begin('~/.vim/plugged')
+    Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
     Plug 'itchyny/calendar.vim', {'on': 'Calendar'}
     Plug 'preservim/nerdcommenter'
     Plug 'mbbill/echofunc'
@@ -43,6 +44,9 @@ filetype indent on
 set shiftwidth=4
 set linespace=0
 set noshowmode
+set nobackup
+set autoread
+set confirm
 let g:airline_theme='luna'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
@@ -66,6 +70,7 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
+map <Leader>ut :UndotreeToggle<cr>
 nnoremap <Leader>ve :edit /etc/vim/vimrc<cr>
 nnoremap <Leader>vs :source /etc/vim/vimrc<cr>
 map <C-N> :bn<cr>
@@ -127,6 +132,7 @@ map <C-H> <C-W>h
 map <C-J> <C-W>j
 map <C-K> <C-W>k
 map <C-L> <C-W>l
+map :W :w
 
 func! Settitle()
     let l = 0
