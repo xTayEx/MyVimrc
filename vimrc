@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'ycm-core/YouCompleteMe'
     Plug 'ryanoasis/vim-devicons'
     Plug 'Chiel92/vim-autoformat'
+    Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 if has("syntax")
   syntax on
