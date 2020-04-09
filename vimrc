@@ -29,7 +29,9 @@ endif
 
 set number
 syntax on
-colorscheme monokai
+let g:airline_theme='papercolor'
+set background=light
+colorscheme solarized8
 set mouse=a
 set encoding=utf-8
 filetype indent on
@@ -48,7 +50,6 @@ set noshowmode
 set nobackup
 set autoread
 set confirm
-let g:airline_theme='luna'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 let mapleader=','
