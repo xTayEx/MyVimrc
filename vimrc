@@ -29,9 +29,9 @@ endif
 
 set number
 syntax on
-let g:airline_theme='papercolor'
+let g:airline_theme='sol'
 set background=light
-colorscheme solarized8
+colorscheme solarized8_high
 set mouse=a
 set encoding=utf-8
 filetype indent on
@@ -183,3 +183,20 @@ autocmd VimEnter * :wincmd l
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
 
 set noswapfile
+
+" 修改光标样式
+let &t_ti.="\e[1 q"
+let &t_SI.="\e[5 q"
+let &t_EI.="\e[1 q"
+let &t_te.="\e[0 q"
+
+" 使vim支持真彩色
+if has("termguicolors")
+    " fix bug for vim
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+    " enable true color
+    set termguicolors
+endif
+
