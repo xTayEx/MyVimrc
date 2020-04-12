@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'ryanoasis/vim-devicons'
     Plug 'Chiel92/vim-autoformat'
     Plug 'octol/vim-cpp-enhanced-highlight'
+    Plug 'tpope/vim-surround'
 call plug#end()
 if has("syntax")
   syntax on
@@ -29,9 +30,9 @@ endif
 
 set number
 syntax on
-let g:airline_theme='sol'
-set background=light
-colorscheme solarized8_high
+let g:airline_theme='molokai'
+set background=dark
+colorscheme better_monokai
 set mouse=a
 set encoding=utf-8
 filetype indent on
