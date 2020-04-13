@@ -201,3 +201,9 @@ if has("termguicolors")
     set termguicolors
 endif
 
+
+let g:airline_left_sep="\uE0B8"
+let g:airline_right_sep="\uE0BE"
+let g:airline_left_alt_sep="\uE0BF"
+let g:airline_right_alt_sep="\uE0BF"
+
