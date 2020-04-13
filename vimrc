@@ -207,3 +207,6 @@ let g:airline_right_sep="\uE0BE"
 let g:airline_left_alt_sep="\uE0BF"
 let g:airline_right_alt_sep="\uE0BF"
 
+ 
+nnoremap <Leader>+ :exec "vert res ".(winwidth(0) * 11/10)<CR>
+nnoremap <leader>- :exec "vert res ".(winwidth(0) * 10/11)<CR>
