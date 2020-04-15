@@ -28,6 +28,8 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
+set nowrap
+set sidescroll=1
 set number
 syntax on
 let g:airline_theme='molokai'
