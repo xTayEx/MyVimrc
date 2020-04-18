@@ -1,8 +1,9 @@
 runtime! debian.vim
 
 call plug#begin('~/.vim/plugged')
+    Plug 'easymotion/vim-easymotion'
     Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
-    Plug 'itchyny/calendar.vim', {'on': 'Calendar'}
+    " Plug 'itchyny/calendar.vim', {'on': 'Calendar'}
     Plug 'preservim/nerdcommenter'
     Plug 'mbbill/echofunc'
     Plug 'Yggdroot/LeaderF'
@@ -160,7 +161,7 @@ func! Settitle()
     let l = l + 1 | call setline(l, '#define rson mid+1,rig,rt<<1|1')
     let l = l + 1 | call setline(l, 'const int maxn=1e5+5;')
     let l = l + 1 | call setline(l, 'using namespace std;')
-    let l = l + 1 | call setline(l , 'typedef long long ll;')
+    let l = l + 1 | call setline(l, 'typedef long long ll;')
     let l = l + 1 | call setline(l, 'typedef unsigned long long ull;')
     let l = l + 1 | call setline(l, '')
 endfunc
@@ -169,9 +170,9 @@ map ;y :!/mnt/c/Windows/System32/clip.exe<cr>u
 map ;p :read !/mnt/c/Windows/System32/paste.exe <cr>i<bs><esc>l
 map! ;p <esc>:read !/mnt/c/Windows/System32/paste.exe <cr>i<bs><esc>l
 map <F2> :Autoformat<cr>
-map <Leader>n :edit
+map <Leader>n :e  
 
-" 完成补全后自动关闭函数原型提示窗口i
+" 完成补全后自动关闭函数原型提示窗口
 let g:ycm_autoclose_preview_window_after_completion=1 
 
 
@@ -212,3 +213,8 @@ let g:airline_right_alt_sep="\uE0BF"
  
 nnoremap <Leader>+ :exec "vert res ".(winwidth(0) * 11/10)<CR>
 nnoremap <leader>- :exec "vert res ".(winwidth(0) * 10/11)<CR>
+
+set timeoutlen=1000
+set ttimeoutlen=10
+
+nmap ss <Plug>(easymotion-s2)
