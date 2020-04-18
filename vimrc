@@ -76,6 +76,7 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
+inoremap jj <Esc>
 map <Leader>ut :UndotreeToggle<cr>
 nnoremap <Leader>ve :edit /etc/vim/vimrc<cr>
 nnoremap <Leader>vs :source /etc/vim/vimrc<cr>
